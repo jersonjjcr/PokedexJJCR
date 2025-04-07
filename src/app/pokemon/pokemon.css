@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+
+
+
+h2{
+font-family: 'Wallpoet', sans-serif;
+font-size:x-large;
+color: aliceblue;	
+}
+
+.containter__pokemon {
+	padding: 30px;
+	width: 100%;
+	min-height: 100dvh;
+	background-color: rgb(0, 38, 255);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: rgba(0, 238, 255, 0.61);
+	position: relative;
+	overflow: hidden;
+	text-decoration: none;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		mask-image: radial-gradient(
+			circle,
+			rgb(90, 84, 84) 10%,
+			rgba(0, 0, 0, 0) 50%
+		);
+		-webkit-mask-image: radial-gradient(
+			circle,
+			rgba(0, 0, 0, 1) 40%,
+			rgba(199, 25, 25, 0) 50%
+		);
+		background-image: linear-gradient(to right, #f4f3fd29 1px, transparent 1px),
+			linear-gradient(to bottom, #09043f29 1px, transparent 1px);
+		background-size: 50px 50px;
+		pointer-events: none;
+		z-index: 0;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		top: 60%;
+		left: 40%;
+		width: 300px;
+		height: 300px;
+		background-image: var(--gradient-text);
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+		filter: blur(100px);
+		pointer-events: none;
+		z-index: 1;
+		animation: moveCircle 4s infinite alternate cubic-bezier(0.3, 0.3, 0.3, 0.7);
+	}
+}
+
+/* ===== Efectos de giro ===== */
+.pokemon-spin {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	transition: transform 0.7s ease-in-out;
+	cursor: pointer;
+	z-index: 2;
+	position: relative;
+}
+
+.hover-rotate:hover {
+	transform: rotate(360deg) scale(1.05);
+}
+
+.auto-rotate {
+	animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.pokedex__title {
+	margin-top: 40px;
+	font-family: 'Wallpoet', sans-serif;
+	font-size: clamp(20px, 10vw, 60px);
+	text-align: center;
+	text-transform: uppercase;
+	background: var(--gradient-text);
+	background-size: 200%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke: 1px #fff;
+
+	animation: animate-gradient 2.5s linear infinite, neon-glow 1s ease-in-out infinite alternate;
+	text-shadow:
+		0 0 5px #08f800,
+		0 0 10px #08f800,
+		0 0 20px #08f800,
+		0 0 40px #08f800;
+
+	transition: transform 0.3s ease-in-out;
+	z-index: 3;
+}
+
+.pokedex__title:hover {
+	transform: scale(1.05);
+	animation: animate-gradient 2.5s linear infinite, neon-glow-flicker 0.2s infinite alternate;
+}
+
+
+.card__pokemon__img {
+	width: clamp(350px, 50vw, 450px);
+	z-index: 2;
+	position: relative;
+	box-shadow: 0 4px 20px rgb(241, 232, 232);
+}

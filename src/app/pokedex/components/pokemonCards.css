@@ -1,0 +1,137 @@
+.container__cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 20px;
+	width: 100%;
+	max-width: 1200px;
+	height: 100%;
+	place-items: center;
+	padding: 20px;
+}
+
+.pokemon__card {
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 20px;
+	box-shadow: 0 0 10px #00f7ff44, 0 0 20px #1affff33;
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(0, 255, 255, 0.2);
+	color: #ffffffcc;
+	text-align: center;
+	max-width: 300px;
+	position: relative;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	z-index: 1;
+	animation: fadeIn 1s ease-out;
+
+	transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.pokemon__card:hover {
+	box-shadow: 0 0 15px #00f7ff, 0 0 30px #1affff;
+	transform: translateY(-10px) scale(1.02);
+}
+
+.pokemon__card::before {
+	content: '';
+	position: absolute;
+	bottom: 40px;
+	left: 40px;
+	width: 120px;
+	height: 120px;
+	background: #00f7ff;
+	border-radius: 50%;
+	filter: blur(70px);
+	z-index: 0;
+	animation: pulse 4s infinite ease-in-out;
+}
+
+.pokemon__card__img {
+	width: 300px;
+	z-index: 2;
+	cursor: pointer;
+	transition: transform 0.4s ease;
+}
+
+.pokemon__card__img:hover {
+	transform: scale(1.1) rotate(2deg);
+}
+
+.pokemon__card__name {
+	z-index: 2;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-family: "Fugaz One", sans-serif;
+	font-size: 1.6rem;
+	letter-spacing: 2px;
+	color: #00f7ff;
+	text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+	margin-top: 10px;
+	animation: glowText 3s ease-in-out infinite alternate;
+}
+.pokemon__card__name {
+	font-family: 'Bungee Spice', cursive;
+}
+
+.pokemon__card__types {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 20px;
+	padding: 20px 20px;
+}
+
+.pokemon__card__type {
+	text-transform: uppercase;
+	background-color: #00f7ff1a;
+	padding: 6px 20px;
+	border-radius: 15px;
+	backdrop-filter: blur(10px);
+	border: 1px solid #00f7ff33;
+	color: #00f7ff;
+	box-shadow: 0 0 8px #00f7ff44;
+	font-weight: bold;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon__card__type:hover {
+	background-color: #00f7ff33;
+	box-shadow: 0 0 12px #00f7ff99;
+}
+
+/* ========== ANIMACIONES ========== */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes pulse {
+	0%, 100% {
+		transform: scale(1);
+		opacity: 0.6;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 1;
+	}
+}
+
+@keyframes glowText {
+	from {
+		text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+	}
+	to {
+		text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+	}
+}
