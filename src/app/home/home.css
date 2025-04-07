@@ -91,8 +91,14 @@
 		transform: translateY(-15px) rotate(5deg);
 	}
 }
+@media (max-width: 768px) {
+	.pikachu-spin,
+	.charizard-spin {
+	  display: none;
+	}
+  }
+  
 
-/* Estilos existentes (sin modificar) */
 .pokelogo {
 	padding-top: 100px;
 	width: clamp(380px, 50vw, 600px);
@@ -136,7 +142,39 @@
 	}
   }
   
-
+  .title-pokedex {
+	font-family: 'pokemon', sans-serif;
+	font-size: clamp(2rem, 8vw, 5rem);
+	text-align: center;
+	color: #0c6e6e;
+	animation: neon-glow 1.5s ease-in-out infinite alternate;
+	z-index: 2;
+	position: relative;
+	text-shadow:
+	  0 0 5px #00fff9,
+	  0 0 10px #00fff9,
+	  0 0 20px #00fff9,
+	  0 0 40px #00fff9,
+	  0 0 80px #00fff9;
+  }
+  
+  @keyframes neon-glow {
+	0% {
+	  text-shadow:
+		0 0 2px #00fff9,
+		0 0 4px #00fff9,
+		0 0 8px #00fff9,
+		0 0 16px #00fff9;
+	}
+	100% {
+	  text-shadow:
+		0 0 5px #00fff9,
+		0 0 10px #00fff9,
+		0 0 20px #00fff9,
+		0 0 40px #00fff9;
+	}
+  }
+  
 .container-pokedex {
 	display: flex;
 	flex-direction: column;
